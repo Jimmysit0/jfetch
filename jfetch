@@ -7,9 +7,30 @@ for os in /etc/os-release /usr/lib/os-release; do
 	[ -f $os ] && . $os && break
 done
 
-## wm
-wm=$(wmctrl -m | awk '/Name/ { print $2 }')
+ ## wm (took from https://github.com/unixporn/trup/blob/master/fetcher.sh#L55)
+  [ ! "$wm" ] && [ "$DISPLAY" ] && command -v xprop >/dev/null && {
+    id=$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)
+    id=${id##* }
+    wm=$(xprop -id "$id" -notype -len 100 -f _NET_WM_NAME 8t |
+      grep '^_NET_WM_NAME' | cut -d\" -f 2)
+  }
 
+
+  [ ! "$wm" ] || [ "$wm" = "LG3D" ] &&
+    wm=$(
+      ps -e | grep -m 1 -o \
+        -e "sway" \
+        -e "kiwmi" \
+        -e "wayfire" \
+        -e "sowm" \
+        -e "catwm" \
+        -e "fvwm" \
+        -e "dwm" \
+        -e "2bwm" \
+        -e "monsterwm" \
+        -e "tinywm" \
+        -e "xmonad"
+    )
 ## kernel	
 	read -r _ _ version _ < /proc/version
 	ke=${version%%-*}
