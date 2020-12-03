@@ -14,3 +14,8 @@ git clone https://github.com/Jimmysit0/jfetch
 cd jfetch/
 make install
 ```
+
+## Running without installing 
+```
+curl -s https://raw.githubusercontent.com/Jimmysit0/jfetch/master/jfetch | sh
+```
