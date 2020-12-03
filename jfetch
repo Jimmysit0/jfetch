@@ -18,18 +18,7 @@ for os in /etc/os-release /usr/lib/os-release; do
 done
 
 ## wm
-if [ "$XDG_CURRENT_DESKTOP" ]; then
-	wm="$XDG_CURRENT_DESKTOP"
-elif [ "$DESKTOP_SESSION" ]; then
-	wm="$DESKTOP_SESSION"
-elif [ "$DISPLAY" ]; then
-	xorg="$(pg Xorg)"
-	xorg="${xorg##* }"
-	aa="$(pg wm monad box i3 tile)"
-	[ "${aa##* }" -gt "$xorg" ] &&
-		[ "${aa##* }" -lt "$((xorg + 30))" ] &&
-		wm="${aa%% *}"
-fi
+wm=$(wmctrl -m | awk '/Name/ { print $2 }')
 
 ## kernel	
 	read -r _ _ version _ < /proc/version
