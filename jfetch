@@ -1,11 +1,8 @@
 #!/bin/sh
 ## read system info
 read -r host < /proc/sys/kernel/hostname
-
-## os
-for os in /etc/os-release /usr/lib/os-release; do
-	[ -f $os ] && . $os && break
-done
+read -r kernel < /proc/sys/kernel/osrelease
+. /etc/os-release
 
  ## wm (took from https://github.com/unixporn/trup/blob/master/fetcher.sh#L55)
   [ ! "$wm" ] && [ "$DISPLAY" ] && command -v xprop >/dev/null && {
