@@ -1,6 +1,3 @@
-PREFIX?=/usr
-BIN?=$(PREFIX)/bin
-
 default:
 	@printf "targets:\n  make install\n  make uninstall\n"
 
