@@ -2,8 +2,6 @@
 <h1 align="center">jfetch</h1>
 <p align="center">A minimal Linux fetch script</p>
 
-jfetch is a tiny fetch script, thought to be simple, and easily customizable.
-
 <h3 align="center">Install</h3>
 
 ```
