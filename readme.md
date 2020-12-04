@@ -20,3 +20,8 @@ make install
 curl -s https://raw.githubusercontent.com/Jimmysit0/jfetch/master/jfetch | sh
 ```
 
+## Customization guide
+
+<h2 align="center">optionals</h2>
+
+
