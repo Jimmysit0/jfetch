@@ -8,15 +8,15 @@ read -r host < /proc/sys/kernel/hostname
 read -r kernel < /proc/sys/kernel/osrelease
 . /etc/os-release
 
-## define eq for ram (stolen from https://github.com/6gk/fet.sh/blob/master/fet.sh cause I have no idea on how to do this, and the ram script is from there too)
-eq() {  # equals  |  [ a = b ] with globbing
+## define eq for ram 
+eq() {  
 	case $1 in
 		$2) ;;
 		*) return 1;;
 	esac
 }
 
- ## wm (took from https://github.com/unixporn/trup/blob/master/fetcher.sh#L55)
+ ## wm 
   [ ! "$wm" ] && [ "$DISPLAY" ] && command -v xprop >/dev/null && {
     id=$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)
     id=${id##* }
@@ -46,7 +46,7 @@ eq() {  # equals  |  [ a = b ] with globbing
 
 ## optionals
 	
-## package manager (took from https://github.com/ThatOneCalculator/NerdFetch)
+## package manager 
 manager=$(which nix-env yum dnf rpm apt brew port zypper pacman xbps-query pkg emerge cave apk kiss brl yay cpm eopkg 2>/dev/null)
 manager=${manager##*/}
 ## packages detection 
@@ -72,7 +72,7 @@ case $manager in
 	*) packages="idk"
 esac 
 
-## display protocol (took from https://github.com/unixporn/trup/blob/master/fetcher.sh)
+## display protocol
   [ "$DISPLAY" ] && displayprot="x11"
   [ "$WAYLAND_DISPLAY" ] && displayprot="wayland"
   [ ! "$displayprot" ] && displayprot="tty"
@@ -109,8 +109,7 @@ IFS=. read -r uptime _ < /proc/uptime
 	up=$(printf %02d:%02d $((uptime / 60 / 60 % 24)) $((uptime / 60 % 60)))
 	[ "$d" -gt 0 ] && up="${d}d $up"	
 
-# colors and palette method stolen from dylanaraps pfetch
-# https://github.com/dylanaraps/pfetch
+# colors and palette method
 c0='[0m';
 c1='[31m'; c2='[32m'
 c3='[33m'; c4='[34m'
