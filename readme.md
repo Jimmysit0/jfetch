@@ -47,16 +47,17 @@ Here's a list with all the options avaible.
 user = ${USER}
 host = ${host}
 distro = ${PRETTY_NAME}
-shell = ${SHELL##*/}
 wm = ${wm}
-display protocol = ${displayprot}
+terminal = ${term}
+shell = ${SHELL##*/}
 kernel = ${ke}
 package manager = ${manager}
 packages count = ${packages}
-resolution = ${resolution}
 cpu = ${cpu}
 ram = ${mem}
 uptime = ${up}
+display protocol = ${displayprot}
+resolution = ${resolution}
 ```
 <h5 align="center">Thanks</h5>
 
