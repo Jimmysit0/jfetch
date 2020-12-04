@@ -22,7 +22,7 @@ curl -s https://raw.githubusercontent.com/Jimmysit0/jfetch/master/jfetch | sh
 
 <h2 align="center">Customization guide</h2>
 
-In the main file, there are some scripts categorized in "optionals". And what are these for? Well, if you ever wanted to change the info that jfetch displays, add more, or anything you want, your solution is probably there. If you want to add any of those, you must modify the output.
+In the main file (usr/bin/jfetch), there are some scripts categorized in "optionals". And what are these for? Well, if you ever wanted to change the info that jfetch displays, add more, or anything you want, your solution is probably there. If you want to add any of those, you must modify the output.
 
 Example: You want to add the display protocol to your fetch. So you should modify the output and add ${displayprot}
 Here's a quick example:
