@@ -5,7 +5,7 @@ default:
 	@printf "targets:\n  make install\n  make uninstall\n"
 
 install:
-	install -Dm755 jfetch $(BIN)/jfetch
+	sudo install -Dm755 jfetch /bin/jfetch
 
 uninstall:
-	rm -f $(BIN)/jfetch
+	sudo rm -f /bin/jfetch
