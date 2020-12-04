@@ -19,3 +19,12 @@ make install
 ```
 curl -s https://raw.githubusercontent.com/Jimmysit0/jfetch/master/jfetch | sh
 ```
+
+## Gallery
+
+![image0](https://media.discordapp.net/attachments/743573851685912629/784256983163338752/unknown.png)
+
+![image1](https://media.discordapp.net/attachments/772291172223156274/784160524824477706/unknown.png)
+
+![image2](https://media.discordapp.net/attachments/743573851685912629/784257420368674816/unknown.png)
+
