@@ -6,14 +6,14 @@
 
 jfetch is a tiny fetch script, thought to be simple, and easily customizable.
 
-## Install
+<h3 align="center">Install</h3>
 ```
 git clone https://github.com/Jimmysit0/jfetch
 cd jfetch/
 make install
 ```
 
-## Running without installing 
+<h4 align="center">Running without installing</h4>
 ```
 curl -s https://raw.githubusercontent.com/Jimmysit0/jfetch/master/jfetch | sh
 ```
@@ -56,7 +56,7 @@ cpu = ${cpu}
 ram = ${mem}
 uptime = ${up}
 ```
-## Thanks 
+<h5 align="center">Thanks</h5>
 
 [mfetch](https://github.com/depsterr/mfetch)
 
