@@ -6,7 +6,7 @@
 
 jfetch is a tiny fetch script, thought to be simple, and easily customizable.
 
-jfetch is entirely based in [mfetch](https://github.com/depsterr/mfetch).
+jfetch is based in [mfetch](https://github.com/depsterr/mfetch).
 
 ## Install
 ```
