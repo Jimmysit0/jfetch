@@ -63,7 +63,11 @@ uptime = ${up}
 ## Thanks 
 
 [mfetch](https://github.com/depsterr/mfetch)
+
 [fet.sh](https://github.com/6gk/fet.sh)
+
 [fetcher.sh](https://github.com/unixporn/trup/blob/master/fetcher.sh)
+
 [pfetch](https://github.com/dylanaraps/pfetch)
+
 [NerdFetch](https://github.com/ThatOneCalculator/NerdFetch)
