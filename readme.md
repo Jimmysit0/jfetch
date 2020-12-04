@@ -6,8 +6,6 @@
 
 jfetch is a tiny fetch script, thought to be simple, and easily customizable.
 
-jfetch is based in [mfetch](https://github.com/depsterr/mfetch).
-
 ## Install
 ```
 git clone https://github.com/Jimmysit0/jfetch
@@ -20,9 +18,7 @@ make install
 curl -s https://raw.githubusercontent.com/Jimmysit0/jfetch/master/jfetch | sh
 ```
 
-## Customization guide
-
-<h2 align="center">optionals</h2>
+<h2 align="center">Customization guide</h2>
 
 In the main file, there are some scripts categorized in "optionals". And what are these for? Well, if you ever wanted to change the info that jfetch displays, add more, or anything you want, your solution is probably there. If you want to add any of those, you must modify the output.
 
