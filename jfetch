@@ -45,10 +45,29 @@ eq() {
 	ke=${version%%-*}
 
 ## optionals
+
+## terminal
+while [ ! "$term" ]; do
+		while read -r line; do
+			eq "$line" 'PPid*' && ppid=${line##*:?} && break
+		done < "/proc/${ppid:-$PPID}/status"
+
+		[ "$pppid" = "$ppid" ] && break
+		pppid=$ppid
+
+		read -r name < "/proc/$ppid/comm"
+
+		case $name in
+			*sh|"${0##*/}") ;;  
+			*[Ll]ogin*|*init*|*systemd*) break;;
+			*) term=$name
+		esac
+	done
 	
-## package manager 
+## package manager
 manager=$(which nix-env yum dnf rpm apt brew port zypper pacman xbps-query pkg emerge cave apk kiss brl yay cpm eopkg 2>/dev/null)
 manager=${manager##*/}
+
 ## packages detection 
 case $manager in
 	cpm) packages="$(cpm C)";;
@@ -88,14 +107,22 @@ unset i resolution
   }
 
 ## cpu  
-while read -r a b _ model; do
-    case "$a $b" in
-    "model name")
-      cpu=$model
-      break
-      ;;
-    esac
-  done </proc/cpuinfo
+while read -r line; do
+		case $line in
+			vendor_id*) vendor="${line##*: } ";;
+			model\ name*) cpu=${line##*: }; break;;
+		esac
+	done < /proc/cpuinfo
+	
+vendor=${vendor##*Authentic}
+vendor=${vendor##*Genuine}
+cpu=${cpu##*) }
+cpu=${cpu%% @*}
+cpu=${cpu%% CPU}
+cpu=${cpu##CPU }
+cpu=${cpu##*AMD }
+cpu=${cpu%% with*}
+cpu=${cpu% *-Core*}	
   
 ## ram
 while read -r line; do
@@ -109,7 +136,7 @@ IFS=. read -r uptime _ < /proc/uptime
 	up=$(printf %02d:%02d $((uptime / 60 / 60 % 24)) $((uptime / 60 % 60)))
 	[ "$d" -gt 0 ] && up="${d}d $up"	
 
-# colors and palette method
+# colors and palette method 
 c0='[0m';
 c1='[31m'; c2='[32m'
 c3='[33m'; c4='[34m'
