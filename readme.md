@@ -7,6 +7,7 @@
 jfetch is a tiny fetch script, thought to be simple, and easily customizable.
 
 <h3 align="center">Install</h3>
+
 ```
 git clone https://github.com/Jimmysit0/jfetch
 cd jfetch/
@@ -14,6 +15,7 @@ make install
 ```
 
 <h4 align="center">Running without installing</h4>
+
 ```
 curl -s https://raw.githubusercontent.com/Jimmysit0/jfetch/master/jfetch | sh
 ```
