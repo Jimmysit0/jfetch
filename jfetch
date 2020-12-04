@@ -8,7 +8,7 @@ read -r host < /proc/sys/kernel/hostname
 read -r kernel < /proc/sys/kernel/osrelease
 . /etc/os-release
 
-## define eq for ram 
+## define eq for ram (do not modify this)
 eq() {  
 	case $1 in
 		$2) ;;
