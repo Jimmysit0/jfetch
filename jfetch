@@ -135,6 +135,11 @@ IFS=. read -r uptime _ < /proc/uptime
 	d=$((uptime / 60 / 60 / 24))
 	up=$(printf %02d:%02d $((uptime / 60 / 60 % 24)) $((uptime / 60 % 60)))
 	[ "$d" -gt 0 ] && up="${d}d $up"	
+	
+## model	
+read -r model < /sys/devices/virtual/dmi/id/product_name
+	
+## optionals ends here
 
 # colors and palette method 
 c0='[0m';
