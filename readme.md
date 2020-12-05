@@ -26,23 +26,7 @@ curl -s https://raw.githubusercontent.com/Jimmysit0/jfetch/master/jfetch | sh
 ```
 
 #### Customization
-You can configure jfetch by modifying the output. Here's a quick example:
-
-```
-printf '%s\n' "
-    ${c5}     .-.         ${c6}os${c0} ~ ${PRETTY_NAME}
-    ${c5}  __/   (        ${c6}tm${c0} ~ ${term}
-    ${c5}, '-.____\\       ${c6}wm${c0} ~ ${wm}
-    ${c5} u=='/  \\        ${c6}pk${c0} ~ ${packages}
-    ${c5}    /_/  \\       ${c6}sh${c0} ~ ${SHELL##*/}
-    ${c5}  .-''   |       
-    ${c5} (  ${c5}____${c5}/${c5}_____ ${c0}  ${palette}
-    
-"
-```
-![screenshot](https://media.discordapp.net/attachments/743499254076538891/784527201864777758/unknown.png)
-
-Here's a list with all the options avaible.
+You can configure jfetch by modifying the output. Here's a list with all the options avaible.
 
 ```
 user = ${USER}
@@ -60,6 +44,7 @@ uptime = ${up}
 display protocol = ${displayprot}
 resolution = ${resolution}
 ```
+
 #### Thanks
 
 [mfetch](https://github.com/depsterr/mfetch)
