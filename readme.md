@@ -26,7 +26,6 @@ curl -s https://raw.githubusercontent.com/Jimmysit0/jfetch/master/jfetch | sh
 ```
 
 #### Customization
-
 You can configure jfetch by modifying the output. Here's a quick example:
 
 ```
