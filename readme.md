@@ -11,7 +11,7 @@ A minimal Linux fetch script
 yay -S jfetch-git
 ```
 
-#### Github
+#### [Github](https://github.com/Jimmysit0/jfetch)
 
 ```
 git clone https://github.com/Jimmysit0/jfetch
@@ -19,7 +19,7 @@ cd jfetch/
 sudo make install
 ```
 
-##### Without installing
+##### [Without installing](https://raw.githubusercontent.com/Jimmysit0/jfetch/master/jfetch)
 
 ```
 curl -s https://raw.githubusercontent.com/Jimmysit0/jfetch/master/jfetch | sh
