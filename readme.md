@@ -44,6 +44,7 @@ uptime = ${up}
 palette = ${palette}
 display protocol = ${displayprot}
 resolution = ${resolution}
+model = ${model}
 ```
 
 #### Thanks
