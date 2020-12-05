@@ -41,6 +41,7 @@ packages count = ${packages}
 cpu = ${cpu}
 ram = ${mem}
 uptime = ${up}
+palette = ${palette}
 display protocol = ${displayprot}
 resolution = ${resolution}
 ```
