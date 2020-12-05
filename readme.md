@@ -1,27 +1,33 @@
-<p align="center"><img alt="screenshot" src="https://media.discordapp.net/attachments/743573851685912629/784142204746465310/jfetch1.png?width=1920&height=1080" width="700px"></p>
-<h1 align="center">jfetch</h1>
-<p align="center">A minimal Linux fetch script</p>
+# jfetch
+A minimal Linux fetch script
 
-<h3 align="center">Install</h3>
+![Screenshot](https://media.discordapp.net/attachments/743573851685912629/784631371519623171/unknown.png)
+
+### Installing
+
+#### [AUR](https://aur.archlinux.org/packages/jfetch-git/)
+
+```
+yay -S jfetch-git
+```
+
+#### Github
 
 ```
 git clone https://github.com/Jimmysit0/jfetch
 cd jfetch/
-make install
+sudo make install
 ```
 
-<h4 align="center">Running without installing</h4>
+##### Without installing
 
 ```
 curl -s https://raw.githubusercontent.com/Jimmysit0/jfetch/master/jfetch | sh
 ```
 
-<h2 align="center">Customization guide</h2>
+#### Customization
 
-In the main file (usr/bin/jfetch), there are some scripts categorized in "optionals". And what are these for? Well, if you ever wanted to change the info that jfetch displays, add more, or anything you want, your solution is probably there. If you want to add any of those, you must modify the output.
-
-Example: You want to modify the fetch a bit. So you should play around with the options avaible in the output .
-Here's a quick example:
+You can configure jfetch by modifying the output. Here's a quick example:
 
 ```
 printf '%s\n' "
@@ -55,7 +61,7 @@ uptime = ${up}
 display protocol = ${displayprot}
 resolution = ${resolution}
 ```
-<h5 align="center">Thanks</h5>
+#### Thanks
 
 [mfetch](https://github.com/depsterr/mfetch)
 
