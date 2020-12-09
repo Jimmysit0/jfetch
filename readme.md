@@ -1,5 +1,6 @@
-# jfetch
-A minimal Linux fetch script
+<h3 align="center">jfetch</h3>
+
+<h5 align="center">A minimal Linux fetch script</h5>
 
 <p align="center">
 <a href="./license"><img src="https://img.shields.io/github/license/Jimmysit0/jfetch?style=for-the-badge&logo=appveyor"></a>
@@ -7,58 +8,6 @@ A minimal Linux fetch script
 
 ![Screenshot](https://cdn.discordapp.com/attachments/774495352522539020/786311758159413288/Untitled.png)
 
-### Installing
+### More: \[[Wiki](https://github.com/o2sh/onefetch/wiki)\] \[[Installation](https://github.com/o2sh/onefetch/wiki/Installation)\] \[[Getting Started](https://github.com/o2sh/onefetch/wiki/getting-started)\]
 
-#### [AUR](https://aur.archlinux.org/packages/jfetch-git/)
-
-```
-yay -S jfetch-git
-```
-
-#### [Github](https://github.com/Jimmysit0/jfetch)
-
-```
-git clone https://github.com/Jimmysit0/jfetch
-cd jfetch/
-sudo make install
-```
-
-##### [Without installing](https://raw.githubusercontent.com/Jimmysit0/jfetch/master/jfetch)
-
-```
-curl -s https://raw.githubusercontent.com/Jimmysit0/jfetch/master/jfetch | sh
-```
-
-#### Customization
-You can configure jfetch by modifying the output. Here's a list with all the options avaible.
-
-```
-user = ${USER}
-host = ${host}
-distro = ${PRETTY_NAME}
-wm = ${wm}
-terminal = ${term}
-shell = ${SHELL##*/}
-kernel = ${ke}
-package manager = ${manager}
-packages count = ${packages}
-cpu = ${cpu}
-ram = ${mem}
-uptime = ${up}
-palette = ${palette}
-display protocol = ${displayprot}
-resolution = ${resolution}
-model = ${model}
-```
-
-#### Thanks
-
-[mfetch](https://github.com/depsterr/mfetch)
-
-[fet.sh](https://github.com/6gk/fet.sh)
-
-[fetcher.sh](https://github.com/unixporn/trup/blob/master/fetcher.sh)
-
-[pfetch](https://github.com/dylanaraps/pfetch)
-
-[NerdFetch](https://github.com/ThatOneCalculator/NerdFetch)
+jfetch is still in beta, if you find any bug, open an issue, if you want to contribute, open a pull request, thanks for reading!
