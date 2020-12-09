@@ -1,6 +1,9 @@
 # jfetch
 A minimal Linux fetch script
 
+<p align="center">
+<a href="./license.md"><img src="https://img.shields.io/github/license/Jimmysit0/jfetch"></a>
+</p>
 ![Screenshot](https://media.discordapp.net/attachments/743573851685912629/784631371519623171/unknown.png)
 
 ### Installing
