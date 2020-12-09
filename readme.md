@@ -10,5 +10,5 @@
 
 jfetch is still in beta, if you find any bug, open an issue, if you want to contribute, open a pull request, thanks for reading!
 
-### More: \[[Wiki](https://github.com/o2sh/onefetch/wiki)\] \[[Installation](https://github.com/o2sh/onefetch/wiki/Installation)\] \[[Getting Started](https://github.com/o2sh/onefetch/wiki/getting-started)\]
+### More: \[[Wiki](https://github.com/Jimmysit0/jfetch/wiki)\] \[[Installation](https://github.com/Jimmysit0/jfetch/wiki/Installation)\] \[[Customization](https://github.com/Jimmysit0/jfetch/wiki/customization)\]
 
