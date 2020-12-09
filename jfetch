@@ -24,22 +24,6 @@ eq() {
       grep '^_NET_WM_NAME' | cut -d\" -f 2)
   }
 
-  [ ! "$wm" ] || [ "$wm" = "LG3D" ] &&
-    wm=$(
-      ps -e | grep -m 1 -o \
-        -e "sway" \
-        -e "kiwmi" \
-        -e "wayfire" \
-        -e "sowm" \
-        -e "catwm" \
-        -e "fvwm" \
-        -e "dwm" \
-        -e "2bwm" \
-        -e "monsterwm" \
-        -e "tinywm" \
-        -e "xmonad"
-    )
-    
 ## kernel	
 	read -r _ _ version _ < /proc/version
 	ke=${version%%-*}
@@ -134,14 +118,15 @@ while read -r line; do
 IFS=. read -r uptime _ < /proc/uptime
 	d=$((uptime / 60 / 60 / 24))
 	up=$(printf %02d:%02d $((uptime / 60 / 60 % 24)) $((uptime / 60 % 60)))
-	[ "$d" -gt 0 ] && up="${d}d $up"	
-	
+	[ "$d" -gt 0 ] && up="${d}d $up"
+
 ## model	
 read -r model < /sys/devices/virtual/dmi/id/product_name
 	
+
 ## optionals ends here
 
-# colors and palette method 
+## colors and palette method 
 c0='[0m';
 c1='[31m'; c2='[32m'
 c3='[33m'; c4='[34m'
@@ -149,14 +134,25 @@ c5='[35m'; c6='[36m'
 c7='[37m'; c8='[38m'
 palette="[7m$c1 $c1 $c2 $c2 $c3 $c3 $c4 $c4 $c5 $c5 $c6 $c6 [m"
 
-## output
-printf '%s\n' "
-    ${c5}     .-.         ${USER}${c0}@${c5}${host}
-    ${c5}  __/   (        ${c6}os${c0} ~ ${PRETTY_NAME}
-    ${c5}, '-.____\\       ${c6}sh${c0} ~ ${SHELL##*/}
-    ${c5} u=='/  \\        ${c6}wm${c0} ~ ${wm}
-    ${c5}    /_/  \\       ${c6}kr${c0} ~ ${ke}
-    ${c5}  .-''   |       
-    ${c5} (  ${c5}____${c5}/${c5}_____ ${c0}  ${palette}
+# ascii 
+ARTR1="${c5}     .-.         "
+ARTR2="${c5}  __/   (        "
+ARTR3="${c5}, '-.____\\       "
+ARTR4="${c5} u=='/  \\        "
+ARTR5="${c5}    /_/  \\       "
+ARTR6="${c5}  .-''   |"
+ARTR7="${c5} (  ${c5}____${c5}/${c5}_____   "
+
+# output
+cat <<-EOF
+
+    ${ARTR1}${USER}${c0}@${c5}${host}
+    ${ARTR2}${c6}os${c0} ~ ${PRETTY_NAME}
+    ${ARTR3}${c6}sh${c0} ~ ${SHELL##*/}
+    ${ARTR4}${c6}wm${c0} ~ ${wm}
+    ${ARTR5}${c6}kr${c0} ~ ${ke}
+    ${ARTR6}
+    ${ARTR7}${palette}
     
-"
+    
+EOF
