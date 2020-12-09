@@ -5,7 +5,7 @@ A minimal Linux fetch script
 <a href="./license"><img src="https://img.shields.io/github/license/Jimmysit0/jfetch?style=for-the-badge&logo=appveyor"></a>
 </p>
 
-![Screenshot](https://media.discordapp.net/attachments/743573851685912629/784631371519623171/unknown.png)
+![Screenshot](https://cdn.discordapp.com/attachments/774495352522539020/786311758159413288/Untitled.png)
 
 ### Installing
 
