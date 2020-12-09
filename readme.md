@@ -8,6 +8,7 @@
 
 ![Screenshot](https://cdn.discordapp.com/attachments/774495352522539020/786311758159413288/Untitled.png)
 
+jfetch is still in beta, if you find any bug, open an issue, if you want to contribute, open a pull request, thanks for reading!
+
 ### More: \[[Wiki](https://github.com/o2sh/onefetch/wiki)\] \[[Installation](https://github.com/o2sh/onefetch/wiki/Installation)\] \[[Getting Started](https://github.com/o2sh/onefetch/wiki/getting-started)\]
 
-jfetch is still in beta, if you find any bug, open an issue, if you want to contribute, open a pull request, thanks for reading!
