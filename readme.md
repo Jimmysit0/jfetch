@@ -1,11 +1,7 @@
-<h5 align="center">jfetch</h5>
-<h4 align="center">A minimal Linux fetch script</h4>
+# jfetch
+A minimal Linux fetch script
 
-jfetch is a minimal Linux fetch script, thought to be simple, and easily customizable. It's writen in shell script, it will display some useful info about your computer directly in your terminal.
-
-The default config is directly allocated on the main file, but it can be easily modified without any shell script knowledge of shell script, you can modify almost everything, the ascii art, what you want to display, or you could even add more options! See [contributing](https://github.com/Jimmysit0/jfetch/blob/master/contributing.md)
-
-<img src="https://media.discordapp.net/attachments/743573851685912629/784631371519623171/unknown.png" align="right" height="240px">
+![Screenshot](https://media.discordapp.net/attachments/743573851685912629/784631371519623171/unknown.png)
 
 ### Installing
 
