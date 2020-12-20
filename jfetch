@@ -146,7 +146,7 @@ ARTR7="${c5} (  ${c5}____${c5}/${c5}_____   "
 # output
 cat <<-EOF
 
-    ${ARTR1}${USER}${c0}@${c5}${host}
+    ${ARTR1}${USER}${c0}
     ${ARTR2}${c6}os${c0} ~ ${PRETTY_NAME}
     ${ARTR3}${c6}sh${c0} ~ ${SHELL##*/}
     ${ARTR4}${c6}up${c0} ~ ${up}
