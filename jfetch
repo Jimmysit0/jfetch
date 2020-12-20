@@ -149,7 +149,7 @@ cat <<-EOF
     ${ARTR1}${USER}${c0}@${c5}${host}
     ${ARTR2}${c6}os${c0} ~ ${PRETTY_NAME}
     ${ARTR3}${c6}sh${c0} ~ ${SHELL##*/}
-    ${ARTR4}${c6}md${c0} ~ ${model}
+    ${ARTR4}${c6}up${c0} ~ ${up}
     ${ARTR5}${c6}kr${c0} ~ ${ke}
     ${ARTR6}
     ${ARTR7}${palette}
