@@ -126,32 +126,40 @@ read -r model < /sys/devices/virtual/dmi/id/product_name
 
 ## optionals ends here
 
-## colors and palette method 
-c0='[0m';
-c1='[31m'; c2='[32m'
-c3='[33m'; c4='[34m'
-c5='[35m'; c6='[36m'
-c7='[37m'; c8='[38m'
-palette="[7m$c1 $c1 $c2 $c2 $c3 $c3 $c4 $c4 $c5 $c5 $c6 $c6 [m"
+## colors 
+bold='[1m'
+black='[30m'
+red='[31m'
+green='[32m'
+yellow='[33m'
+blue='[34m'
+magenta='[35m'
+cyan='[36m'
+white='[37m'
+grey='[90m'
+reset='[0m'
 
 # ascii 
-ARTR1="${c5}     .-.         "
-ARTR2="${c5}  __/   (        "
-ARTR3="${c5}, '-.____\\       "
-ARTR4="${c5} u=='/  \\        "
-ARTR5="${c5}    /_/  \\       "
-ARTR6="${c5}  .-''   |"
-ARTR7="${c5} (  ${c5}____${c5}/${c5}_____   "
+ARTR1="${magenta}     .-.         "
+ARTR2="${magenta}  __/   (        "
+ARTR3="${magenta}, '-.____\\       "
+ARTR4="${magenta} u=='/  \\        "
+ARTR5="${magenta}    /_/  \\       "
+ARTR6="${magenta}  .-''   |"
+ARTR7="${magenta} (  ${magenta}____${magenta}/${magenta}_____   "
 
 # output
+
 cat <<-EOF
-    ${ARTR1}${USER}${c0}@${c5}${host}
-    ${ARTR2}${c6}os${c0} ~ ${PRETTY_NAME}
-    ${ARTR3}${c6}sh${c0} ~ ${SHELL##*/}
-    ${ARTR4}${c6}wm${c0} ~ ${wm}
-    ${ARTR5}${c6}kr${c0} ~ ${ke}
+
+
+    ${ARTR1}${USER}${reset}@${magenta}${host}
+    ${ARTR2}${cyan}os${white} ~ ${PRETTY_NAME}
+    ${ARTR3}${cyan}sh${white} ~ ${SHELL##*/}
+    ${ARTR4}${cyan}wm${white} ~ ${wm}
+    ${ARTR5}${cyan}kr${white} ~ ${ke}
     ${ARTR6}
-    ${ARTR7}${palette}
+    ${ARTR7}${black}卑${red}卑${green}卑${yellow}卑${blue}卑${magenta}卑${cyan}卑${reset}
     
     
 EOF
