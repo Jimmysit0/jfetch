@@ -8,7 +8,15 @@
 
 ![Screenshot](https://cdn.discordapp.com/attachments/743573851685912629/791067842689761340/jfetchupdate1.png)
 
-jfetch is still in beta, if you find any bug, open an issue, if you want to contribute, open a pull request, thanks for reading!
+### Installing
+**Arch:** [jfetch-git](https://aur.archlinux.org/packages/jfetch-git/) (AUR)  
+**Other Distros:** clone the repo and run `sudo make install`
+
+### Customization
+`jfetch` can be configured and customized modifying the source, for example:
+```
+terminal = ${term}
+```
 
 ### More: \[[Wiki](https://github.com/Jimmysit0/jfetch/wiki)\] \[[Installation](https://github.com/Jimmysit0/jfetch/wiki/Installation)\] \[[Customization](https://github.com/Jimmysit0/jfetch/wiki/customization)\]
 
