@@ -35,12 +35,9 @@ while [ ! "$term" ]; do
 		while read -r line; do
 			eq "$line" 'PPid*' && ppid=${line##*:?} && break
 		done < "/proc/${ppid:-$PPID}/status"
-
 		[ "$pppid" = "$ppid" ] && break
 		pppid=$ppid
-
 		read -r name < "/proc/$ppid/comm"
-
 		case $name in
 			*sh|"${0##*/}") ;;  
 			*[Ll]ogin*|*init*|*systemd*) break;;
@@ -82,8 +79,7 @@ esac
   
 ## resolution
 unset i resolution
-
-  command -v xrandr >/dev/null && {
+command -v xrandr >/dev/null && {
     for i in $(xrandr --current | grep ' connected' | grep -o '[0-9]\+x[0-9]\+'); do
       resolution="$resolution$i, "
     done
@@ -97,7 +93,6 @@ while read -r line; do
 			model\ name*) cpu=${line##*: }; break;;
 		esac
 	done < /proc/cpuinfo
-	
 vendor=${vendor##*Authentic}
 vendor=${vendor##*Genuine}
 cpu=${cpu##*) }
@@ -122,6 +117,11 @@ IFS=. read -r uptime _ < /proc/uptime
 
 ## model	
 read -r model < /sys/devices/virtual/dmi/id/product_name
+
+## gtk
+while read -r line; do
+	eq "$line" 'gtk-theme*' && gtk=${line##*=} && break
+done < "${XDG_CONFIG_HOME:=$HOME/.config}/gtk-3.0/settings.ini"
 	
 
 ## optionals ends here
@@ -139,7 +139,7 @@ white='[37m'
 grey='[90m'
 reset='[0m'
 
-# ascii 
+# ascii
 ARTR1="${magenta}     .-.         "
 ARTR2="${magenta}  __/   (        "
 ARTR3="${magenta}, '-.____\\       "
@@ -152,7 +152,6 @@ ARTR7="${magenta} (  ${magenta}____${magenta}/${magenta}_____   "
 
 cat <<-EOF
 
-
     ${ARTR1}${USER}${reset}@${magenta}${host}
     ${ARTR2}${cyan}os${white} ~ ${PRETTY_NAME}
     ${ARTR3}${cyan}sh${white} ~ ${SHELL##*/}
@@ -160,6 +159,5 @@ cat <<-EOF
     ${ARTR5}${cyan}kr${white} ~ ${ke}
     ${ARTR6}
     ${ARTR7}${black}卑${red}卑${green}卑${yellow}卑${blue}卑${magenta}卑${cyan}卑${reset}
-    
-    
+        
 EOF
