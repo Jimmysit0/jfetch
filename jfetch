@@ -1,6 +1,4 @@
 #!/bin/sh
-## read system info
-
 ## hostname
 read -r host < /proc/sys/kernel/hostname
 
@@ -35,9 +33,12 @@ while [ ! "$term" ]; do
 		while read -r line; do
 			eq "$line" 'PPid*' && ppid=${line##*:?} && break
 		done < "/proc/${ppid:-$PPID}/status"
+
 		[ "$pppid" = "$ppid" ] && break
 		pppid=$ppid
+
 		read -r name < "/proc/$ppid/comm"
+
 		case $name in
 			*sh|"${0##*/}") ;;  
 			*[Ll]ogin*|*init*|*systemd*) break;;
@@ -79,7 +80,8 @@ esac
   
 ## resolution
 unset i resolution
-command -v xrandr >/dev/null && {
+
+  command -v xrandr >/dev/null && {
     for i in $(xrandr --current | grep ' connected' | grep -o '[0-9]\+x[0-9]\+'); do
       resolution="$resolution$i, "
     done
@@ -93,6 +95,7 @@ while read -r line; do
 			model\ name*) cpu=${line##*: }; break;;
 		esac
 	done < /proc/cpuinfo
+	
 vendor=${vendor##*Authentic}
 vendor=${vendor##*Genuine}
 cpu=${cpu##*) }
@@ -158,6 +161,6 @@ cat <<-EOF
     ${ARTR4}${cyan}wm${white} ~ ${wm}
     ${ARTR5}${cyan}kr${white} ~ ${ke}
     ${ARTR6}
-    ${ARTR7}${black}卑${red}卑${green}卑${yellow}卑${blue}卑${magenta}卑${cyan}卑${reset}
+    ${ARTR7}${red}卑${green}卑${yellow}卑${blue}卑${magenta}卑${cyan}卑${reset}
         
 EOF
