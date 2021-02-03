@@ -6,7 +6,7 @@
 <a href="./license"><img src="https://img.shields.io/github/license/Jimmysit0/jfetch?style=for-the-badge&logo=appveyor"></a>
 </p>
 
-![Screenshot](https://cdn.discordapp.com/attachments/743573851685912629/797315766814769173/unknown.png)
+![Screenshot](https://cdn.discordapp.com/attachments/743573851685912629/806624823396008018/unknown.png)
 
 ### Installing
 **Arch:** [jfetch-git](https://aur.archlinux.org/packages/jfetch-git/) (AUR)  
