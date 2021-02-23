@@ -6,15 +6,7 @@ read -r host < /proc/sys/kernel/hostname
 read -r kernel < /proc/sys/kernel/osrelease
 . /etc/os-release
 
-## define eq for ram (do not modify this)
-eq() {  
-	case $1 in
-		$2) ;;
-		*) return 1;;
-	esac
-}
-
- ## wm 
+## wm
   [ ! "$wm" ] && [ "$DISPLAY" ] && command -v xprop >/dev/null && {
     id=$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)
     id=${id##* }
@@ -22,116 +14,11 @@ eq() {
       grep '^_NET_WM_NAME' | cut -d\" -f 2)
   }
 
-## kernel	
-	read -r _ _ version _ < /proc/version
-	ke=${version%%-*}
+## kernel
+        read -r _ _ version _ < /proc/version
+        ke=${version%%-*}
 
-## optionals
-
-## terminal
-while [ ! "$term" ]; do
-		while read -r line; do
-			eq "$line" 'PPid*' && ppid=${line##*:?} && break
-		done < "/proc/${ppid:-$PPID}/status"
-
-		[ "$pppid" = "$ppid" ] && break
-		pppid=$ppid
-
-		read -r name < "/proc/$ppid/comm"
-
-		case $name in
-			*sh|"${0##*/}") ;;  
-			*[Ll]ogin*|*init*|*systemd*) break;;
-			*) term=$name
-		esac
-	done
-	
-## package manager
-manager=$(which nix-env yum dnf rpm apt brew port zypper pacman xbps-query pkg emerge cave apk kiss brl yay cpm eopkg 2>/dev/null)
-manager=${manager##*/}
-
-## packages detection 
-case $manager in
-	cpm) packages="$(cpm C)";;
-	brew) packages="$(brew list --formula | wc -l)";;
-	port) packages=$(port installed | tot);;
-	apt) packages="$(dpkg-query -f '${binary:Package}\n' -W | wc -l)";;
-	rpm) packages="$(rpm -qa --last| wc -l)";;
-	yum) packages="$(yum list installed | wc -l)";;
-	dnf) packages="$(dnf list installed | wc -l)";;
-	zypper) packages="$(zypper se | wc -l)";;
-	pacman) packages="$(pacman -Q | wc -l)";;
-	yay) packages="$(yay -Q | wc -l)";;
-	kiss) packages="$(kiss list | wc -l)";;
-	pkg|emerge) packages="$(qlist -I | wc -l)";;
-	cave) packages="$(cave show installed-slots | wc -l)";;
-	xbps-query) packages="$(xbps-query -l | wc -l)";;
-	nix-env) packages="$(nix-store -q --requisites /run/current-system/sw | wc -l)";;
-	apk) packages="$(apk list --installed | wc -l)";;
-	brl) packages="$(brl list | wc -l)";;
-	eopkg) packages="$(eopkg li | wc -l)";;
-	*) packages="idk"
-esac 
-
-## display protocol
-  [ "$DISPLAY" ] && displayprot="x11"
-  [ "$WAYLAND_DISPLAY" ] && displayprot="wayland"
-  [ ! "$displayprot" ] && displayprot="tty"
-  
-## resolution
-unset i resolution
-
-  command -v xrandr >/dev/null && {
-    for i in $(xrandr --current | grep ' connected' | grep -o '[0-9]\+x[0-9]\+'); do
-      resolution="$resolution$i, "
-    done
-    resolution=${resolution%, }
-  }
-
-## cpu  
-while read -r line; do
-		case $line in
-			vendor_id*) vendor="${line##*: } ";;
-			model\ name*) cpu=${line##*: }; break;;
-		esac
-	done < /proc/cpuinfo
-	
-vendor=${vendor##*Authentic}
-vendor=${vendor##*Genuine}
-cpu=${cpu##*) }
-cpu=${cpu%% @*}
-cpu=${cpu%% CPU}
-cpu=${cpu##CPU }
-cpu=${cpu##*AMD }
-cpu=${cpu%% with*}
-cpu=${cpu% *-Core*}	
-  
-## ram
-while read -r line; do
-		eq "$line" 'MemTotal*' && set -- $line && break
-	done < /proc/meminfo
-	mem="$(( $2 / 1000 ))MB"
-	
-## uptime
-IFS=. read -r uptime _ < /proc/uptime
-	d=$((uptime / 60 / 60 / 24))
-	up=$(printf %02d:%02d $((uptime / 60 / 60 % 24)) $((uptime / 60 % 60)))
-	[ "$d" -gt 0 ] && up="${d}d $up"
-
-## model	
-read -r model < /sys/devices/virtual/dmi/id/product_name
-
-## gtk
-while read -r line; do
-	eq "$line" 'gtk-theme*' && gtk=${line##*=} && break
-done < "${XDG_CONFIG_HOME:=$HOME/.config}/gtk-3.0/settings.ini"
-	
-
-## optionals ends here
-
-## colors 
-bold='[1m'
-black='[30m'
+## colors
 red='[31m'
 green='[32m'
 yellow='[33m'
@@ -141,26 +28,14 @@ cyan='[36m'
 white='[37m'
 grey='[90m'
 reset='[0m'
-
-# ascii
-ARTR1="${magenta}     .-.         "
-ARTR2="${magenta}  __/   (        "
-ARTR3="${magenta}, '-.____\\       "
-ARTR4="${magenta} u=='/  \\        "
-ARTR5="${magenta}    /_/  \\       "
-ARTR6="${magenta}  .-''   |"
-ARTR7="${magenta} (  ${magenta}____${magenta}/${magenta}_____   "
+palette="[7m$red $green $yellow $blue $magenta $cyan [m"
 
 # output
+printf '%s\n' "
+  ${cyan}os${white} ~ ${PRETTY_NAME}
+  ${cyan}sh${white} ~ ${SHELL##*/}
+  ${cyan}wm${white} ~ ${wm}
+  ${cyan}kr${white} ~ ${ke}
 
-cat <<-EOF
-
-    ${ARTR1}${USER}${reset}@${magenta}${host}
-    ${ARTR2}${cyan}os${white} ~ ${PRETTY_NAME}
-    ${ARTR3}${cyan}sh${white} ~ ${SHELL##*/}
-    ${ARTR4}${cyan}wm${white} ~ ${wm}
-    ${ARTR5}${cyan}kr${white} ~ ${ke}
-    ${ARTR6}
-    ${ARTR7}${red}卑${green}卑${yellow}卑${blue}卑${magenta}卑${cyan}卑${reset}
-        
-EOF
+  ʕ•ᴥ•ʔ welcome to ${magenta}${host}${reset}, ${magenta}${USER}${reset}
+"
