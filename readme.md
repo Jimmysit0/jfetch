@@ -6,9 +6,10 @@
 <a href="./license"><img src="https://img.shields.io/github/license/Jimmysit0/jfetch?style=for-the-badge&logo=appveyor"></a>
 </p>
 
-<p1 align="center">
-<img src="https://cdn.discordapp.com/attachments/767176974312538116/813880422608928819/unknown.png">
-</p1>
+<p align="center">
+    <img src="https://cdn.discordapp.com/attachments/635625917623828520/813885866287431710/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f3736373137363937343331.png" width="80" />
+    <h2 align="center">showcase</h2>
+</p>
 
 
 ### Installing
