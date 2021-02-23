@@ -15,7 +15,7 @@
 ### Customization
 `jfetch` can be configured and customized modifying the source, for example:
 ```
-terminal = ${term}
+terminal = ${wm}
 ```
 
 ### More: \[[Wiki](https://github.com/Jimmysit0/jfetch/wiki)\] \[[Installation](https://github.com/Jimmysit0/jfetch/wiki/Installation)\] \[[Customization](https://github.com/Jimmysit0/jfetch/wiki/customization)\]
