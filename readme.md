@@ -10,7 +10,6 @@
 <img src="https://cdn.discordapp.com/attachments/767176974312538116/813880422608928819/unknown.png">
 </p1>
 
-![Screenshot](https://cdn.discordapp.com/attachments/767176974312538116/813880422608928819/unknown.png)
 
 ### Installing
 **Arch:** [jfetch-git](https://aur.archlinux.org/packages/jfetch-git/) (AUR)  
