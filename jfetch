@@ -19,18 +19,12 @@ read -r kernel < /proc/sys/kernel/osrelease
         ke=${version%%-*}
 
 ## colors
-red='[31m'
-green='[32m'
-yellow='[33m'
-blue='[34m'
 magenta='[35m'
 cyan='[36m'
 white='[37m'
-grey='[90m'
 reset='[0m'
-palette="[7m$red $green $yellow $blue $magenta $cyan [m"
 
-# output
+## output
 printf '%s\n' "
   ${cyan}os${white} ~ ${PRETTY_NAME}
   ${cyan}sh${white} ~ ${SHELL##*/}
