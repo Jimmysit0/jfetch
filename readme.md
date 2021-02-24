@@ -3,12 +3,12 @@
     
 </p>
 
+<h1 align="center">jfetch</h1>
+<p align="center">A minimal Linux fetch script</p>
+
 <p align="center">
 <a href="./license"><img src="https://img.shields.io/github/license/Jimmysit0/jfetch?style=for-the-badge&logo=appveyor"></a>
 </p>
-
-<h1 align="center">jfetch</h1>
-<p align="center">A minimal Linux fetch script</p>
 
 ### Installing
 **Arch:** [jfetch-git](https://aur.archlinux.org/packages/jfetch-git/) (AUR)  
