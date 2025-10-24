@@ -1,22 +1,27 @@
 #!/bin/sh
 ## hostname
-read -r host < /proc/sys/kernel/hostname
+host=$(hostname)
 
 ## os (distro)
-read -r kernel < /proc/sys/kernel/osrelease
-. /etc/os-release
+if [ "$(uname)" = "Darwin" ]; then
+    PRETTY_NAME="macOS $(sw_vers -productVersion)"
+else
+    read -r kernel < /proc/sys/kernel/osrelease
+    . /etc/os-release
+fi
 
 ## wm
-  [ ! "$wm" ] && [ "$DISPLAY" ] && command -v xprop >/dev/null && {
+if [ -n "$DISPLAY" ] && command -v xprop >/dev/null 2>&1; then
     id=$(xprop -root -notype _NET_SUPPORTING_WM_CHECK)
     id=${id##* }
     wm=$(xprop -id "$id" -notype -len 100 -f _NET_WM_NAME 8t |
-      grep '^_NET_WM_NAME' | cut -d\" -f 2)
-  }
+        grep '^_NET_WM_NAME' | cut -d\" -f 2)
+elif [ "$(uname)" = "Darwin" ]; then
+    wm="Aqua" #TODO: find if theres a way to fetch the wm on macos
+fi
 
 ## kernel
-        read -r _ _ version _ < /proc/version
-        ke=${version%%-*}
+ke=$(uname -s -r)
 
 ## colors
 magenta='[35m'
